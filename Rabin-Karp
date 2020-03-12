@@ -1,0 +1,73 @@
+*** Rabin Karp substring search Algorithm ***
+
+- Uses rolling hash to find the string pattern
+
+
+Example:
+
+Text : abedabc
+pattern: abc
+
+Steps:
+
+1. Compute the hash on pattern
+ 
+ h(pattern) =  x
+
+2. Compare that hash with equal lenght of chars in text. In this example 'abd'
+
+if hash matches with pattern hash then compare actual string if its same return else, remove 1st character and add next character from text, in this example: (remove a from abd and add a (4th character in text) in bd: bda
+
+compute hash and repeat untill u find the match.
+
+
+
+prime number: 3
+
+a = 1
+b = 2
+c = 3
+d = 4
+e = 5
+f = 6
+
+
+abc = 1 + 2*3(raise to 1) + 3*3(raise to 2) = 34
+
+abe = 1 + 2*3(raise to 1) + 5*3(raise to 2) = 52
+
+34 != 52
+
+Since its not a match, we rolling the hash by 1 character, next substring search will be bda
+
+
+abe = 1 + 2*3(raise to 1) + 4*3(raise to 2) = 52
+      
+      a is leaving, so you can substract value of a from total: 51
+      
+      Divide 51 by prime number = 17
+      
+      Then you value of new character to 17 = 17 + 4*3(raise to 2) = 53
+
+bed = 53
+
+34 != 53
+
+eda = 53 - 2 = 51
+      51 / 3 = 17
+      17 + 1*3(raise to 2) = 26
+      
+      
+
+dab = 26 - 5 = 21
+      21/3 = 7
+      7 + 2*3(raise to 2) = 25
+      
+25 != 34
+
+
+abc = 25 - 4 = 21
+      21/3 = 7
+      7 + 3*3(raise to 2) = 34
+      
+    
